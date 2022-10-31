@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 
 public class Patient {
     String firstName;
@@ -16,6 +17,14 @@ public class Patient {
     int unosStatus;
     String dateOfBirth;
     int age;
+    String changedUNOSStatus1;
+    String changedUNOSStatus2;
+    String changedUNOSStatus3;
+    String dateChanged1;
+    String dateChanged2;
+    String dateChanged3;
+
+
 
     public void setAge(String dateofBirth){
         //get age from date of birth
@@ -26,8 +35,9 @@ public class Patient {
         LocalDate start=LocalDate.of(year, month, day);
         LocalDate end=LocalDate.now();
         int years = (int) ChronoUnit.YEARS.between(start, end);
-        this.age=years;
+        //this.age=years;
         
+        this.age=2022-year;
        
 
     }
@@ -82,15 +92,19 @@ public class Patient {
     public void setUnosStatus(String unosStatus){ //setting priority based on unos status
         switch(unosStatus){
             case "Status 1A":
+           
                 this.unosStatus=1;
                 break;
             case "Status 1B":
+            
                 this.unosStatus=2;
                 break;
             case "Status 2":
+            
                 this.unosStatus=3;
                 break;
             case "Status 7":
+           
                 this.unosStatus=4;
                 break;
             case "":
@@ -169,6 +183,45 @@ public class Patient {
     public String getDateOfBirth() {
         return dateOfBirth;
     }
+    public void setDateListed(LocalDate now) {
+        this.dateListed = now.toString();
+    }
+    public void addUnosStatusChange(String unosStatus2) {
+        if(changedUNOSStatus1==null){
+            changedUNOSStatus1=unosStatus2;
+            dateChanged1=LocalDate.now().toString();
+        }
+        else if(changedUNOSStatus2==null){
+            changedUNOSStatus2=unosStatus2;
+            dateChanged2=LocalDate.now().toString();
+        }
+        else if(changedUNOSStatus3==null){
+            changedUNOSStatus3=unosStatus2;
+            dateChanged3=LocalDate.now().toString();
+        }
+
+
+    }
+    public String getChangedUNOSStatus1() {
+        return changedUNOSStatus1;
+    }
+    public String getChangedUNOSStatus2() {
+        return changedUNOSStatus2;
+    }
+    public String getChangedUNOSStatus3() {
+        return changedUNOSStatus3;
+    }
+    public String getDateChanged1() {
+        return dateChanged1;
+    }
+    public String getDateChanged2() {
+        return dateChanged2;
+    }
+    public String getDateChanged3() {
+        return dateChanged3;
+    }
+    
+   
 
 
 }
